@@ -5,7 +5,8 @@ public class Room {
     private boolean hasKingSizeBed;
     private double price;
     private int numberOfWindows;
-
+    private boolean hasBalcony;
+    private boolean hasBathroom;
 
     public String getId() {
         return id;
@@ -15,7 +16,6 @@ public class Room {
         this.id = id;
     }
 
-
     public double getArea() {
         return area;
     }
@@ -23,7 +23,6 @@ public class Room {
     public void setArea(double area) {
         this.area = area;
     }
-
 
     public int getFloor() {
         return floor;
@@ -33,7 +32,6 @@ public class Room {
         this.floor = floor;
     }
 
-
     public boolean getHasKingSizeBed() {
         return hasKingSizeBed;
     }
@@ -41,7 +39,6 @@ public class Room {
     public void setHasKingSizeBed(boolean hasKingSizeBed) {
         this.hasKingSizeBed = hasKingSizeBed;
     }
-
 
     public double getPrice() {
         return price;
@@ -59,17 +56,49 @@ public class Room {
         this.numberOfWindows = numberOfWindows;
     }
 
-    public Room(String id, double area, int floor, boolean hasKingSizeBed, double price, int numberOfWindows){
+    public boolean getHasBalcony() {
+        return hasBalcony;
+    }
+
+    public void setHasBalcony(boolean hasBalcony) {
+        this.hasBalcony = hasBalcony;
+    }
+
+    public boolean getHasBathroom() {
+        return hasBathroom;
+    }
+
+    public void setHasBathroom(boolean hasBathroom) {
+        this.hasBathroom = hasBathroom;
+    }
+
+    public Room(String id,
+            double area,
+            int floor,
+            boolean hasKingSizeBed,
+            double price,
+            int numberOfWindows,
+            boolean hasBalcony,
+            boolean hasBathroom) {
         this.id = id;
         this.area = area;
         this.floor = floor;
         this.hasKingSizeBed = hasKingSizeBed;
         this.price = price;
         this.numberOfWindows = numberOfWindows;
+        this.hasBalcony = hasBalcony;
+        this.hasBathroom = hasBathroom;
     }
-    @Override
-    public String toString(){
-        return "\nRoom " + this.id + " " + this.area + " " + this.floor + " " + this.hasKingSizeBed + " " + this.price + " " + this.numberOfWindows + "\n";
 
+    @Override
+    public String toString() {
+        return "id: " + this.id
+                + "\narea: " + this.area
+                + "\nfloor: " + this.floor
+                + "\nhasKingSizeBed: " + this.hasKingSizeBed
+                + "\nprice: " + this.price
+                + "\nnumberOfWindows: " + this.numberOfWindows
+                + "\nhasBalcony: " + this.hasBalcony
+                + "\nhasBathroom: " + this.hasBathroom;
     }
 }
