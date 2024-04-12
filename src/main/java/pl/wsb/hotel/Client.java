@@ -90,7 +90,7 @@ public class Client {
         return periodTime.getYears();
     }
 
-    public String getName() {
+    public String getFullName() {
         return this.firstName + " " + this.lastName;
     }
 
