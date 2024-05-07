@@ -12,7 +12,7 @@ public class Main {
                 LocalDate.of(2000, 10, 1), "adam.smith@gmail.com",
                 "123456789",
                 "New York");
-        RoomReservation reservationNumberOne = new RoomReservation(clientNumberOne, roomNumberOne, LocalDate.now());
+        RoomReservation reservationNumberOne = new RoomReservation("1", clientNumberOne, roomNumberOne, LocalDate.now());
         reservationNumberOne.confirmReservation();
         System.out.printf("%s", reservationNumberOne);
     }

@@ -68,13 +68,24 @@ public class Client {
         this.address = address;
     }
 
+
+    public Client(String id, String firstName, String lastName, LocalDate birthDate) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.email = null;
+        this.phoneNumber = null;
+        this.address = null;
+    }
+
     public Client(String id,
-            String firstName,
-            String lastName,
-            LocalDate birthDate,
-            String email,
-            String phoneNumber,
-            String address) {
+                  String firstName,
+                  String lastName,
+                  LocalDate birthDate,
+                  String email,
+                  String phoneNumber,
+                  String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

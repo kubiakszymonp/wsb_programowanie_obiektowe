@@ -3,6 +3,7 @@ package pl.wsb.hotel;
 import java.time.LocalDate;
 
 public class RoomReservation {
+    private String id;
     private Client rentingClient;
     private Room rentedRoom;
     private LocalDate date;
@@ -44,7 +45,8 @@ public class RoomReservation {
         this.isConfirmed = true;
     }
 
-    public RoomReservation(Client rentingClient, Room rentedRoom, LocalDate date) {
+    public RoomReservation(String id, Client rentingClient, Room rentedRoom, LocalDate date) {
+        this.id = id;
         this.rentedRoom = rentedRoom;
         this.rentingClient = rentingClient;
         this.date = date;
@@ -59,5 +61,13 @@ public class RoomReservation {
                 + "\nrentedRoom: " + this.rentedRoom
                 + "\ndate: " + this.date
                 + "\nisConfirmed: " + this.isConfirmed;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

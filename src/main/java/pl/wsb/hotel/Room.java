@@ -9,6 +9,7 @@ public class Room {
     private int numberOfWindows;
     private boolean hasBalcony;
     private boolean hasBathroom;
+    private String description;
 
     public String getId() {
         return id;
@@ -75,13 +76,13 @@ public class Room {
     }
 
     public Room(String id,
-            double area,
-            int floor,
-            boolean hasKingSizeBed,
-            double price,
-            int numberOfWindows,
-            boolean hasBalcony,
-            boolean hasBathroom) {
+                double area,
+                int floor,
+                boolean hasKingSizeBed,
+                double price,
+                int numberOfWindows,
+                boolean hasBalcony,
+                boolean hasBathroom) {
         this.id = id;
         this.area = area;
         this.floor = floor;
@@ -90,6 +91,19 @@ public class Room {
         this.numberOfWindows = numberOfWindows;
         this.hasBalcony = hasBalcony;
         this.hasBathroom = hasBathroom;
+        this.description = "";
+    }
+
+    public Room(String id, double area, int floor, boolean hasKingSizeBed, String description) {
+        this.id = id;
+        this.area = area;
+        this.floor = floor;
+        this.hasKingSizeBed = hasKingSizeBed;
+        this.description = description;
+        this.hasBalcony = false;
+        this.hasBathroom = false;
+        this.price = 0;
+
     }
 
     @Override
@@ -102,5 +116,13 @@ public class Room {
                 + "\nnumberOfWindows: " + this.numberOfWindows
                 + "\nhasBalcony: " + this.hasBalcony
                 + "\nhasBathroom: " + this.hasBathroom;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
