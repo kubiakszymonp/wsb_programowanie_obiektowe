@@ -12,18 +12,17 @@ public class TimeService extends SpecialService {
     @Override
     double getServicePrice(String currency) {
         if (currency.equals("PLN")) {
-           return 10.5;
-        }
-        else if (currency.equals("USD")) {
+            return 10.5;
+        } else if (currency.equals("USD")) {
             return 3.1;
-        }
-        else {
+        } else {
             throw new RuntimeException("Currency not supported");
         }
     }
 
     @Override
     boolean canClientUseIt(Client client) {
+
         return true;
     }
 }

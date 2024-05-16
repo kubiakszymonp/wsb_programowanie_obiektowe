@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ClientTest {
 
@@ -34,6 +36,23 @@ public class ClientTest {
         assertNull(client.getPhoneNumber());
         assertNull(client.getEmail());
         assertNull(client.getPhoneNumber());
+    }
+
+    @Test
+    void testPremiumClient() {
+        var client = new PremiumClient("id", "John", "Kowalsky", LocalDate.of(2000, 1, 1), "a@gmail.com", "123456789",
+                "Warszawa", PremiumAccountType.PREMIUM);
+        var fullName = client.getFullName();
+
+        assertEquals("[premium] John Kowalsky", fullName);
+    }
+
+    @Test
+    void testClientToString(){
+        var client = new Client("id", "John", "Kowalsky", LocalDate.of(2000, 1, 1));
+        var clientString = client.toString();
+
+        assertNotNull(clientString);
     }
 
 }

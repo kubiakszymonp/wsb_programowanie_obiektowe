@@ -55,7 +55,7 @@ public class Hotel implements HotelCapability {
         if (client == null) {
             return "";
         } else {
-            return client.getFirstName();
+            return client.getFullName();
         }
     }
 
@@ -93,7 +93,7 @@ public class Hotel implements HotelCapability {
     public int getNumberOfRoomsWithKingSizeBed(int floor) {
         int numberOfKingSizeBed = 0;
         for (Room room : rooms) {
-            if (room.getHasKingSizeBed()) {
+            if (room.getHasKingSizeBed() && floor == room.getFloor()) {
                 numberOfKingSizeBed++;
             }
         }
@@ -125,6 +125,11 @@ public class Hotel implements HotelCapability {
         if (room == null) {
             throw new RoomNotFoundException("Room not found");
         }
+
+        if(this.isRoomReserved(roomId, date)){
+            throw new RoomReservedException(roomId, date);
+        }
+
 
         RoomReservation reservation = new RoomReservation(this.generateUUID(), client, room, date);
         reservations.add(reservation);
@@ -164,7 +169,7 @@ public class Hotel implements HotelCapability {
         }
 
         for (RoomReservation r : reservations) {
-            if (r.getId().equals(roomId) && r.getDate().equals(date)) {
+            if (r.getRentedRoom().getId().equals(roomId) && r.getDate().equals(date)) {
                 reservation = r;
             }
         }
@@ -199,7 +204,7 @@ public class Hotel implements HotelCapability {
 
         List<String> roomsReservedByClient = new ArrayList<>();
         for (RoomReservation r : reservations) {
-            if (r.getId().equals(client.getId())) {
+            if (r.getRentingClient().getId().equals(client.getId())) {
                 roomsReservedByClient.add(r.getId());
             }
         }
